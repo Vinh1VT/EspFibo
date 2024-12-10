@@ -11,19 +11,19 @@ sw a2, 12(sp)
 
 #output config
 
-#li a2, 0x34
-#la a0, 0x60004574
-#lw a1, 0(a0)
-#xor a1, a1, a2
-#sw a2, 0(a0)
+li a2, 0x2e
+la a0, 0x60004574
+lw a1, 0(a0)
+xor a1, a1, a2
+sw a2, 0(a0)
 
 li a2, 0x100
 
-#enable
-la a0, 0x60004020
-lw a1, 0(a0)
-or a1, a1, a2
-sw a1, 0(a0)
+#enable jcrois ça sert a R
+#la a0, 0x60004020
+#lw a1, 0(a0)
+#or a1, a1, a2
+#sw a1, 0(a0)
 
 
 #allumer la led
