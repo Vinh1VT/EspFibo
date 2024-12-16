@@ -1,6 +1,36 @@
-.globl allumer, eteindre
+.globl allumer, eteindre, delai, blink_N
 
 .text
+
+
+blink_N:
+addi sp, sp, -16
+sw ra, 0(sp)
+sw a0, 4(sp)
+
+
+boucle_blink:
+    beqz a0, end_blink
+    jal allumer
+    jal delai
+    jal eteindre
+    jal delai
+    addi a0, a0, -1
+    bne zero, a0, boucle_blink
+
+
+end_blink:
+lw a0, 4(sp)
+lw ra, 0(sp)
+addi sp, sp, 16
+jalr ra
+
+
+
+
+
+
+
 allumer:
 addi sp, sp, -16
 sw ra, 0(sp)
@@ -54,6 +84,22 @@ sw a2, 0(a0)
 
 lw a2, 12(sp)
 lw a1, 8(sp)
+lw a0, 4(sp)
+lw ra, 0(sp)
+addi sp, sp, 16
+jalr ra
+
+#boucle de délai (environ 1s)
+delai:
+addi sp, sp, -16
+sw ra, 0(sp)
+sw a0, 4(sp)
+
+li a0, 26666667
+boucle_d:
+    addi a0, a0, -1
+    bne zero, a0, boucle_d 
+
 lw a0, 4(sp)
 lw ra, 0(sp)
 addi sp, sp, 16
