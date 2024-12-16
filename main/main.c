@@ -4,18 +4,23 @@
 #include "freertos/task.h"
 
 void fibo(int* a, int b);
-int allumer();
-int eteindre();
+void allumer();
+void eteindre();
 
 void app_main(void)
 {
     int N = 10;
     int Termes[N];
-    int a;
     fibo(Termes,N);
+
+    while(1){
     printf("entree \n");
-    a = allumer();
-    printf("sortie %x\n",a);
+    allumer();
+    vTaskDelay(100);
+    eteindre();
+    vTaskDelay(100);
+    printf("sortie\n");}
+
     for(int i=0; i<N;i++){
         printf("%d ",Termes[i]);
     }

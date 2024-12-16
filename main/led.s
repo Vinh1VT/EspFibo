@@ -10,7 +10,7 @@ sw a2, 12(sp)
 
 li a2, 0x400
 
-#enable jcrois ça sert a R
+#enable
 la a0, 0x60004020
 lw a1, 0(a0)
 or a1, a1, a2
@@ -39,7 +39,7 @@ sw a2, 12(sp)
 
 li a2, 0x400
 
-#enable jcrois ça sert a R
+#enable
 la a0, 0x60004020
 lw a1, 0(a0)
 or a1, a1, a2
