@@ -17,11 +17,8 @@ void app_main(void)
 
     while(1){
     if(!detect_input()){
-        printf("Entree\n");
         blink_N(fibo_n(a));
         a++;
-    }else{
-        printf("nop\n");
     }
     }
 
