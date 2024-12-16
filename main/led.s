@@ -8,6 +8,8 @@ addi sp, sp, -16
 sw ra, 0(sp)
 sw a0, 4(sp)
 
+beqz a0, blink_zero
+
 
 boucle_blink:
     beqz a0, end_blink
@@ -16,7 +18,13 @@ boucle_blink:
     jal eteindre
     jal delai
     addi a0, a0, -1
-    bne zero, a0, boucle_blink
+    j boucle_blink
+
+
+#on met quand meme le delai si on a 0, pour pas que la premiere entrée soit comptée double
+blink_zero:
+    jal delai
+    jal delai
 
 
 end_blink:

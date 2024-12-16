@@ -1,8 +1,48 @@
-.globl fibo
+.globl fibo, fibo_n
 
 .text
 
-fibo:
+fibo_n:
+
+addi sp, sp, -16
+sw ra, 0(sp)
+sw a1, 4(sp) 
+sw a2, 8(sp)
+sw a3, 12(sp)
+#condition initiales
+li a2, 0
+beqz a0, end_fib 
+li a2, 1
+beq a0, a2, end_fib
+
+li a1, 0
+addi a0, a0, -2
+
+boucle_fib:
+    add a3, a1, a2
+    addi a1, a2, 0
+    addi a2, a3, 0
+    beqz a0, end_fib
+    addi a0, a0, -1
+    j boucle_fib
+
+end_fib:
+
+addi a0, a2, 0
+
+lw a3, 12(sp)
+lw a2, 8(sp)
+lw a1, 4(sp)
+lw ra, 0(sp)
+addi sp, sp, 16
+jalr ra
+
+
+
+
+
+
+fibotab:
 #prologue
 addi sp, sp, -20
 sw ra, 0(sp)
