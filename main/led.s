@@ -1,4 +1,4 @@
-.globl allumer, eteindre, delai, blink_N
+.globl allumer, eteindre, delai, blink_n
 
 .text
 
