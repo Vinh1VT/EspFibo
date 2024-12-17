@@ -10,22 +10,29 @@ void delai();
 void blink_n(int a);
 int detect_input();
 int fibo_n(int n);
+void mainfib();
 
 void app_main(void)
 {
-    int a = 0;
+    
+    
+    
+    mainfib();
+    
+    //Old code for input generated fibo, replaced by mainfib
+    /*int a = 0;
 
     while(1){
     if(!detect_input()){
         blink_n(fibo_n(a));
         a++;
     }
-    }
+    }*/
 
-    //Old code for pregenerated fibo
+    //Old code for pregenerated fibo (Exercice 1)
     /*int N = 6;
     int Termes[N];
-    fibo(Termes,N);
+    fibotab(Termes,N);
     //printf("preboucle\n");
     for(int i=0; i<N;i++){
         //printf("entree\n");
