@@ -7,7 +7,7 @@ void fibotab(int* a, int b);
 void allumer();
 void eteindre();
 void delai();
-void blink_N(int a);
+void blink_n(int a);
 int detect_input();
 int fibo_n(int n);
 
@@ -17,7 +17,7 @@ void app_main(void)
 
     while(1){
     if(!detect_input()){
-        blink_N(fibo_n(a));
+        blink_n(fibo_n(a));
         a++;
     }
     }
